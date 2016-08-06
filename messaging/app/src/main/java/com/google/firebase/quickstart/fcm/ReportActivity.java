@@ -34,7 +34,7 @@ public class ReportActivity extends AppCompatActivity {
     public void reportSubmit(View v){
         String rep = report.getText().toString();
 
-        String prams = "http://fphantom.com/paradise/daily_works.php?textfield1="+user+"&textfield2="+pass+"&dw="+rep;
+        String prams = "http://fphantom.com/attendance/daily_works.php?textfield1="+user+"&textfield2="+pass+"&dw="+rep;
         StringRequest resasons = new StringRequest(Request.Method.GET, prams, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

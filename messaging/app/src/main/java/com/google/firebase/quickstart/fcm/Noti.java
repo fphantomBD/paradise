@@ -26,7 +26,7 @@ public class Noti extends ListActivity {
     private ArrayList<HashMap<String,String>> list;
     private HashMap<String,String> map;
     private ProgressDialog progressDialog;
-    private final String url="http://fphantom.com/paradise/android_notice.php";
+    private final String url="http://fphantom.com/attendance/android_notice.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

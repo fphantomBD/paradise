@@ -16,8 +16,10 @@
 
 package com.google.firebase.quickstart.fcm;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -70,10 +72,11 @@ public class MainActivity extends AppCompatActivity {
         TextView date = (TextView) findViewById(R.id.date);
         date.setText(getDate());
 
-
         FirebaseMessaging.getInstance().subscribeToTopic("news");
 
     }
+
+
 
     @Override
     protected void onStop() {
@@ -85,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
         editor.commit();
     }
 
-    public void checkin(View v){
+    public void checkin(){
         username = user.getText().toString();
         password = pass.getText().toString();
         mac = getMac(this);
@@ -96,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     ip = response.getString("ip");
                     if ((mac.equals("e0:91:f5:7d:e7:f2") && ip.equals("103.204.128.226")) || (mac.equals("c4:a8:1d:8a:56:f4") && ip.equals("103.204.128.226")) || (mac.equals("e4:8d:8c:15:e5:9b") && ip.equals("202.191.122.151"))){
-                        StringRequest checkin = new StringRequest(Request.Method.GET, "http://fphantom.com/paradise/android_mod.php?textfield1=" + username + "&textfield2=" + password + "&dw=nothing", new Response.Listener<String>() {
+                        StringRequest checkin = new StringRequest(Request.Method.GET, "http://fphantom.com/attendance/android_mod.php?textfield1=" + username + "&textfield2=" + password + "&dw=nothing", new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
                                 String str[] = response.split("!");
@@ -145,7 +148,7 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     ip = response.getString("ip");
                     if ((mac.equals("e0:91:f5:7d:e7:f2") && ip.equals("103.204.128.226")) || (mac.equals("c4:a8:1d:8a:56:f4") && ip.equals("103.204.128.226")) || (mac.equals("e4:8d:8c:15:e5:9b") && ip.equals("202.191.122.151"))){
-                        StringRequest checkout = new StringRequest(Request.Method.GET, "http://fphantom.com/paradise/android_checkout.php?textfield1=" + username + "&textfield2=" + password, new Response.Listener<String>() {
+                        StringRequest checkout = new StringRequest(Request.Method.GET, "http://fphantom.com/attendance/android_checkout.php?textfield1=" + username + "&textfield2=" + password, new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
                                 Toast.makeText(getApplicationContext(),response,Toast.LENGTH_SHORT).show();

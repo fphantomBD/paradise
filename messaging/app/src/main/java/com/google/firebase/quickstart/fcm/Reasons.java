@@ -34,7 +34,7 @@ public class Reasons extends AppCompatActivity {
 
     public void ashiNai(View v){
         String res = reason.getText().toString();
-        StringRequest resasons = new StringRequest(Request.Method.GET, "http://fphantom.com/paradise/reasons.php?textfield1=" + user + "&textfield2=" + pass + "&dw=" + res, new Response.Listener<String>() {
+        StringRequest resasons = new StringRequest(Request.Method.GET, "http://fphantom.com/attendance/reasons.php?textfield1=" + user + "&textfield2=" + pass + "&dw=" + res, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
